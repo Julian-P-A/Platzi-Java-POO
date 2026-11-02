@@ -1,0 +1,11 @@
+bin/
+exports/
+*.class
+.DS_Store
+.classpath
+.project
+.settings/
+.env
+.env.*
+!.env.example
+__pycache__/
