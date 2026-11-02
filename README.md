@@ -1,66 +1,74 @@
-# VerPelisPlus — Java y programación orientada a objetos
+# Java POO — Programación Orientada a Objetos
 
-Catálogo educativo de películas y documentales por consola. Permite agregar, listar,
-buscar por título o género, ordenar por duración, eliminar y exportar el catálogo.
-La reproducción es una simulación por consola.
+Proyecto académico desarrollado en **Java** como parte de mi proceso de aprendizaje de la **Programación Orientada a Objetos (POO)**, aplicando conocimientos adquiridos durante mis estudios en Platzi en 2021.
 
-## Ejecutar
+El ejercicio utiliza un sistema ficticio de gestión de películas y documentales para poner en práctica los principales conceptos de POO mediante clases, objetos, relaciones y comportamientos.
 
-Necesitas un JDK 21. Desde esta carpeta, en macOS o Linux:
+## Conceptos implementados
 
-```sh
-./run.sh
-```
+- **Clases y objetos:** representación de entidades mediante atributos y métodos.
+- **Encapsulamiento:** uso de modificadores de acceso, getters y setters.
+- **Herencia:** reutilización de atributos y comportamientos mediante clases derivadas.
+- **Polimorfismo:** implementación de métodos con comportamientos específicos según el tipo de objeto.
+- **Abstracción:** definición de una clase abstracta para representar elementos comunes.
+- **Interfaces:** establecimiento de contratos entre clases.
+- **Enumeraciones:** clasificación de contenido mediante `enum`.
+- **Colecciones:** manipulación de listas y mapas con Java Collections y Streams.
+- **Excepciones:** manejo de errores y validación de datos.
+- **Persistencia:** lectura y escritura de información mediante archivos de texto.
 
-El script compila el código y abre el menú. En Eclipse, importa el proyecto como
-proyecto Java existente y selecciona un JDK 21. Ejecuta `com.platzi.proyecto.MainClass`
-con el directorio de trabajo en la raíz del proyecto.
+## Funcionalidades del ejercicio
 
-Para compilar y ejecutar manualmente (también en Windows, usando los comandos
-correspondientes para listar los archivos Java):
+El proyecto incluye un menú interactivo en consola que permite:
 
-```sh
-mkdir -p bin
-find src -name '*.java' > bin/sources.txt
-javac --release 21 -encoding UTF-8 -d bin @bin/sources.txt
-java -cp bin com.platzi.proyecto.MainClass
-```
+1. Registrar películas y documentales.
+2. Consultar el contenido disponible.
+3. Realizar búsquedas por título y género.
+4. Ordenar elementos según su duración.
+5. Simular la reproducción de contenido.
+6. Exportar información a archivos de texto.
+7. Eliminar registros.
 
-## Datos
+Estas funcionalidades permiten demostrar la interacción entre objetos y aplicar los fundamentos de Java POO en un escenario práctico.
 
-- `src/contenido.txt` contiene el catálogo inicial y guarda los cambios de altas y bajas.
-- Las escrituras reemplazan el archivo completo mediante un archivo temporal.
-- Los títulos repetidos se rechazan sin modificar el archivo.
-- Las exportaciones se crean en `exports/`, que se excluye de Git.
-- Si hay una línea inválida en el catálogo, la aplicación indica cuál es y se detiene
-  sin sobrescribir el archivo. Puedes corregir esa línea y volver a ejecutar.
-- Puedes elegir otro archivo con `java -Dverpelis.data=/ruta/catalogo.txt -cp bin com.platzi.proyecto.MainClass`.
+## Estructura principal
 
-Formato de los registros:
+- `MainClass.java`: punto de entrada y menú interactivo.
+- `Plataforma.java`: administración de contenidos.
+- `Contenido.java`: clase abstracta principal.
+- `Pelicula.java`: clase derivada de `Contenido`.
+- `Documental.java`: clase derivada que implementa una interfaz.
+- `Promocionable.java`: interfaz para comportamientos específicos.
+- `Genero.java`: enumeración de categorías.
+- `Usuario.java`: modelado de usuarios y restricciones de edad.
+- `FileUtils.java`: gestión de archivos.
+- `ScannerUtils.java`: captura y validación de entradas.
 
-```text
-PELICULA|Titulo|90|ACCION|12|2026-01-01
-DOCUMENTAL|Titulo|42|CIENCIA_FICCION|0|2026-01-01|Narrador
-```
+## Tecnologías
 
-La edad recomendada se introduce entre 0 y 18 años; las duraciones deben ser positivas.
-Los géneros aceptan espacios o guion bajo: `ciencia ficcion` y `CIENCIA_FICCION`.
+- Java
+- JDK 21 para la versión actual
+- Programación Orientada a Objetos
+- Java Collections y Streams
+- Eclipse IDE
+- Git y GitHub
 
-## Pruebas
+## Ejecución
 
-Con Python 3 y JDK 21:
+Clona el repositorio:
 
-```sh
-python3 -m unittest discover -s tests -v
-```
+`git clone https://github.com/Julian-P-A/Platzi-Java-POO.git`
 
-Las pruebas compilan desde cero y usan archivos temporales: no cambian tu catálogo.
-Comprueban persistencia después de reiniciar, búsquedas, exportación, entradas
-inválidas y protección de archivos corruptos. GitHub Actions ejecuta estas pruebas
-al subir el repositorio.
+Ingresa al directorio:
 
-## Subir a GitHub
+`cd Platzi-Java-POO`
 
-Sube esta carpeta como un repositorio independiente. Incluye `src/`, `tests/`,
-`run.sh`, este README y `.github/`. El archivo `.gitignore` excluye clases compiladas,
-exportaciones, archivos del IDE y configuración local.
+En macOS o Linux, ejecuta:
+
+`./run.sh`
+
+También puedes importar el proyecto en Eclipse y ejecutar la clase `com.platzi.proyecto.MainClass`, configurando JDK 21.
+
+## Sobre el proyecto
+
+Este repositorio conserva un ejercicio realizado durante mi proceso de formación en desarrollo de software. Su propósito es evidenciar la comprensión y aplicación de los fundamentos de la Programación Orientada a Objetos, más que ofrecer una aplicación destinada a producción.
